@@ -1,0 +1,1 @@
+from algebra import cool_func

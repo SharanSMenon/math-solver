@@ -1,0 +1,22 @@
+<div class="box">
+    <div class="grapher-container">
+        <mat-card class="left-card">
+            <div class="buttons-container">
+                <button mat-flat-button color="primary" (click)="addInput()">+</button>
+            </div>
+            <div *ngFor="let item of items">
+                <math-editor uuid={{item.id}} (onValueChange)="onFieldChange($event)" value={{item.latex}}>
+                </math-editor>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-card>
+        <mat-card class="right-card" #graphContainer>
+            <mat-card-content>
+                <div id="graph"></div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <!-- <div *ngIf="isLoading == true" class="spinner-container">
+        <mat-spinner></mat-spinner>
+    </div> -->
+</div>

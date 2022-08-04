@@ -1,0 +1,9 @@
+<mat-card class="answer-card">
+    <mat-card-title>{{this.cardNameF}}</mat-card-title>
+    <mat-card-content>
+        <p [mathjax]="outputLatex"></p>
+    </mat-card-content>
+    <mat-card-actions *ngIf="this.showActions">
+        <button mat-button (click)="clickFunc()">{{ this.actionName }}</button>
+    </mat-card-actions>
+</mat-card>

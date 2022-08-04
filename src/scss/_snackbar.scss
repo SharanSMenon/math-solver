@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+
+.snackbar-primary {
+    color: white;
+    background-color: #7b1fa2;
+}
+
+.snackbar-success {
+    color: white;
+    // background-color: #00C853;
+    background-color: #63995a;
+}
+
+.snackbar-error {
+    color: white;
+    // background-color: #00C853;
+    background-color: #D32F2F;
+    ;
+}

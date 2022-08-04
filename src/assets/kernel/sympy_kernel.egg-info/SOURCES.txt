@@ -1,0 +1,14 @@
+setup.py
+sympy_kernel/__init__.py
+sympy_kernel/api.py
+sympy_kernel/calculus.py
+sympy_kernel/latex.py
+sympy_kernel.egg-info/PKG-INFO
+sympy_kernel.egg-info/SOURCES.txt
+sympy_kernel.egg-info/dependency_links.txt
+sympy_kernel.egg-info/top_level.txt
+sympy_kernel/gamma/__init__.py
+sympy_kernel/gamma/derivative.py
+sympy_kernel/gamma/integral.py
+sympy_kernel/gamma/steps.py
+sympy_kernel/gamma/utils.py

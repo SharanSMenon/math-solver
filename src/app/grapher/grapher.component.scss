@@ -1,0 +1,29 @@
+.grapher-container {
+    padding:10px;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    gap:10px;
+}
+
+.left-card {
+    width:25%;
+    padding:0;
+}
+
+.buttons-container {
+    padding:15px 0px 0px 15px;
+    margin-bottom: 15px;
+}
+
+.right-card {
+    flex-grow: 1;
+}
+
+.box {
+    height: 87%;
+}
+
+#mathfield-element {
+    border:none;
+}

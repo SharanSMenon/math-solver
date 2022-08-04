@@ -1,0 +1,34 @@
+<div class="about-page">
+    <mat-card>
+        <mat-card-title>About</mat-card-title>
+        <p>This is a symbolic mathematics solver. Powered by Python and Sympy, it
+            solves many symbolic expressions.
+        </p>
+        <p>
+            Check out the "What can it solve?" and "Formatting" sections to learn more.
+        </p>
+    </mat-card>
+    <br />
+    <mat-card>
+        <mat-card-title>What can it solve?</mat-card-title>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of items">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ item.title }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>{{ item.description }}</p>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-card>
+    <br />
+    <mat-card>
+        <mat-card-title>Formatting</mat-card-title>
+        <mat-card-content>
+            <p>The calculator accepts two types of input, Latex input
+                and SymPy expressions. 
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>

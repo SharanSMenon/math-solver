@@ -1,0 +1,15 @@
+<div [ngSwitch]="isLoading" class="body-div">
+    <div *ngSwitchCase="false">
+        <math-editor (onValueChange)="mathFieldChange($event)" uuid="1" id="editor"></math-editor>
+        <br>
+        <div *ngIf="outputType == OutputEnum.Latex">
+            <app-latex-card [name]="this.outputEType" [latex]="outputLatex" [showActions]="this.showStepsButton"
+                (onClick)="getSteps()"></app-latex-card>
+            <br />
+            <app-step-card [steps]="this.stepsMap" *ngIf="this.showSteps"></app-step-card>
+        </div>
+    </div>
+    <div *ngSwitchCase="true" class="spinner-container">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

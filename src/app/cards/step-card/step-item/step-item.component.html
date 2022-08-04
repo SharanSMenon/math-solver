@@ -1,0 +1,11 @@
+<ul *ngIf='this.stepType == "level"'>
+    <app-step-item *ngFor="let item of this.stepsMap.level" step-item={{this.stringify(item)}}></app-step-item>
+</ul>
+<li *ngIf='this.stepType == "step"'>
+    <app-step-item *ngFor="let item of this.stepsMap.step" step-item={{this.stringify(item)}}></app-step-item>
+</li>
+<div *ngIf='this.stepType == "collapsible"'>
+    <app-step-item *ngFor="let item of this.stepsMap.collapsible" step-item={{this.stringify(item)}}></app-step-item>
+</div>
+<p *ngIf='this.stepType == "p"' [mathjax]="this.pText">
+</p>
