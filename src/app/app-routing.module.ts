@@ -7,7 +7,10 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'about', component: AboutPageComponent },
-  { path: 'graph', component: GrapherComponent }
+  { 
+    path: 'graph',  
+    loadChildren: () => import('./grapher/grapher.module').then(m => m.GrapherModule)
+  }
 ];
 
 @NgModule({

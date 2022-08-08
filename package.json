@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build:stats": "ng build --stats-json",
+    "analyze": "webpack-bundle-analyzer dist/advanced-math-solver/stats.json",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
@@ -28,7 +30,6 @@
     "events": "^3.3.0",
     "function-plot": "^1.22.9-0",
     "mathjax-angular": "^1.4.2",
-    "mathjs": "^11.0.1",
     "mathlive": "^0.77.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -58,6 +59,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
