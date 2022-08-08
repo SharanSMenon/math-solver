@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { getCaptializedName } from 'src/app/shared/utils';
+import { getCapitalizedName } from 'src/app/shared/utils';
 import { OutputEType } from 'src/app/shared/enums'
 
 @Component({
@@ -23,7 +23,7 @@ export class LatexCardComponent implements OnInit {
 
   get cardNameF() {
     const outputType: OutputEType = this.cardName as OutputEType
-    return getCaptializedName(outputType)
+    return getCapitalizedName(outputType)
   }
 
   clickFunc() {

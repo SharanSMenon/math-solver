@@ -1,13 +1,28 @@
 <div class="box">
     <div class="grapher-container">
         <mat-card class="left-card">
-            <div class="buttons-container">
-                <button mat-flat-button color="primary" (click)="addInput()">+</button>
+            <div class="equations-container" *ngIf="!this.isLoading">
+                <div class="buttons-container">
+                    <button mat-flat-button color="primary" (click)="addInput()">+</button>
+                </div>
+                <div *ngFor="let item of items">
+                    <div class="equation-row">
+                        <math-editor class="mathfield" uuid={{item.id}} (onValueChange)="onFieldChange($event)"
+                            value={{item.latex}}>
+                        </math-editor>
+                        <button mat-icon-button (click)="openDialog(item.id)">
+                            <!-- Settings Item -->
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="removeInput(item.id)">
+                            <!-- Remove Item -->
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div *ngFor="let item of items">
-                <math-editor uuid={{item.id}} (onValueChange)="onFieldChange($event)" value={{item.latex}}>
-                </math-editor>
-                <mat-divider></mat-divider>
+            <div class="spinner-container" *ngIf="this.isLoading">
+                <mat-spinner></mat-spinner>
             </div>
         </mat-card>
         <mat-card class="right-card" #graphContainer>

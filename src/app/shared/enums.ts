@@ -13,12 +13,18 @@ export enum OutputEType {
 }
 
 export interface Equation {
-  id: string,
+  id: string
   value: string
 }
 
-export interface EquationX {
-  id: string,
+export interface EquationX { // Contains Additional Options
+  id: string
   value: string
   latex: string
+  fnType?: 'linear' | 'parametric' | 'implicit' | 'polar'
 }
+
+export const fnTypes: string[] = [
+  'linear', 'parametric',
+  'implicit', 'polar'
+]

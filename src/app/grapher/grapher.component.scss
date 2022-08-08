@@ -7,12 +7,11 @@
 }
 
 .left-card {
-    width:25%;
-    padding:0;
+    width:30%;
 }
 
 .buttons-container {
-    padding:15px 0px 0px 15px;
+    // padding:15px 0px 0px 15px;
     margin-bottom: 15px;
 }
 
@@ -24,6 +23,21 @@
     height: 87%;
 }
 
-#mathfield-element {
-    border:none;
+.mathfield {
+    flex-grow: 1;
+}
+
+.equation-row {
+    display: flex;
+    gap:5px;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }

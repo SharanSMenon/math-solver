@@ -4,8 +4,10 @@ import { PyodideService } from '../pyodide.service';
 import { v4 as uuid4 } from 'uuid';
 import { Equation, EquationX } from '../shared/enums';
 import { createLatexToJSCode } from '../shared/templates';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarService } from '../snackbar.service';
+import { FunctionPlotDatum } from 'function-plot/dist/types';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GrapherDialogComponent } from './grapher-dialog/grapher-dialog.component';
 
 @Component({
   selector: 'app-grapher',
@@ -24,7 +26,8 @@ export class GrapherComponent implements OnInit {
 
   constructor(
     private pyodideService: PyodideService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,13 +47,37 @@ export class GrapherComponent implements OnInit {
     })
   }
 
+  openDialog(id: string): void {
+    const dialogRef = this.dialog.open(GrapherDialogComponent, {
+      data: this.getInput(id)
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+    });
+  }
+
   createPlot() {
     const height = this.graphC.nativeElement.offsetHeight
     const width = this.graphC.nativeElement.offsetWidth
-    let data = this.items.map(item => {
-      return {
-        'fn': item.value
+    let data: FunctionPlotDatum[] = this.items.map(item => {
+      let dat: FunctionPlotDatum = {
+        fnType: item.fnType || "linear"
       }
+      if (dat.fnType == "polar") {
+        dat = {
+          ...dat,
+          r: item.value,
+          graphType: 'polyline'
+        }
+      } else {
+        dat = {
+          ...dat,
+          fn: item.value
+        }
+      }
+      return dat
     })
     functionPlot({
       target: '#graph',
@@ -77,6 +104,14 @@ export class GrapherComponent implements OnInit {
   }
   setInput(id: string, value: string, latex: string): void {
     this.items = this.items.map(obj => obj.id === id ? { ...obj, value, latex } : obj)
+  }
+
+  removeInput(id: string): void {
+    var removeIndex = this.items.map(item => item.id).indexOf(id);
+    ~removeIndex && this.items.splice(removeIndex, 1);
+    if (!this.isLoading) {
+      this.createPlot();
+    }
   }
 
   addInput() {

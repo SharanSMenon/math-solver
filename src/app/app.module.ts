@@ -17,6 +17,7 @@ import { StepCardComponent } from './cards/step-card/step-card.component';
 import { StepItemComponent } from './cards/step-card/step-item/step-item.component';
 import { GrapherComponent } from './grapher/grapher.component';
 import { LatexCardComponent } from './cards/latex-card/latex-card.component';
+import { GrapherDialogComponent } from './grapher/grapher-dialog/grapher-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LatexCardComponent } from './cards/latex-card/latex-card.component';
     StepItemComponent,
     GrapherComponent,
     LatexCardComponent,
+    GrapherDialogComponent,
   ],
   imports: [
     CommonModule,

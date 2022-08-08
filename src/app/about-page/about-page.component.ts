@@ -6,9 +6,9 @@ const data = [
     "description": `
     Solve arithmetic expressions. \n 
     Examples: \n
-    $183 + 233$ \n
-    $65/13$ \n
-    $\sqrt(88*32)$ \n
+    $183 + 233$,  \n
+    $\\frac{65}{13}$,  \n
+    $\\sqrt{88*32}$,  \n
     \n
     It can give you answers in simplified form and in decimal form.
     `
@@ -16,7 +16,8 @@ const data = [
   {
     "title": "Algebra",
     "description": `
-    
+    The solver can solve algebraic equations like $x^2 = 4$. 
+    It will also simplify expressions like $\\frac{x^2-4}{x+2}$. Steps are coming soon.
     `
   },
   {
@@ -25,7 +26,8 @@ const data = [
   },
   {
     "title": "Calculus",
-    "description": `Solve Limits, Derivatives, and Integrals. \n`
+    "description": `It will solve Limits, Derivatives, and Integrals. The calculator is able to give steps for derivatives and integrals.
+    Definite, Improper, and Indefinite integrals are supported. Double and Triple integrals are also supported.`
   }
 ]
 

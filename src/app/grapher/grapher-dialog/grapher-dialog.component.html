@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Equation Settings</h1>
+<div mat-dialog-content>
+    <mat-button-toggle-group [(ngModel)]="data.fnType">
+        <mat-button-toggle *ngFor="let type of fnTypes" [value]="type">{{type}}</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

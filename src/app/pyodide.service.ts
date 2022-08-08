@@ -86,9 +86,9 @@ export class PyodideService {
   }
 
   runPython(code: string): Map<string, string> {
-    globalThis.pyodide.runPython(code);
     let out;
     try {
+      globalThis.pyodide.runPython(code);
       out = globalThis.pyodide.globals.get("out");
     } catch {
       const map = new Map<string, string>();
