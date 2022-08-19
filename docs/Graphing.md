@@ -61,4 +61,4 @@ Users should be able to choose a custom color for each curve. Right now, the col
 
 ## Tangent Lines
 
-Linear functions should be allowed to have tangent lines that update with the mouse.
+Linear functions should be allowed to have tangent lines that update with the mouse. A feature of `function-plot.js` that is to be implemented. Derivative is found using SymPy.

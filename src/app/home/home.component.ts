@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { PyodideService } from '../pyodide.service';
-import { OutputType, OutputEType, Equation } from "../shared/enums";
+import { OutputType, OutputEType, Equation, LatexCard } from "../shared/enums";
+import { createExpressionTemplate, createPythonExprTemplate, createTemplate } from '../shared/templates';
 import { SnackbarService } from '../snackbar.service';
 
 @Component({
@@ -13,11 +14,13 @@ export class HomeComponent implements OnInit {
   @ViewChild('mathOutput') mathOutput: ElementRef
 
   mathText: string
+  pythonText: string
   outputType: OutputType = OutputType.None
   outputEType: OutputEType = OutputEType.None
-  outputLatex: string;
+  latexCards: LatexCard[] = []
   showSteps = false;
   stepsMap: string;
+  inputType: "latex" | "python" = "latex";
   public OutputEnum = OutputType;
   public OutputEEnum = OutputEType;
 
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit {
     this.snackbarService.loading();
     this.pyodideService.isLoadingObs.subscribe(value => {
       if (!value) {
-       this.snackbarService.ready();
+        this.snackbarService.ready();
       }
     })
   }
@@ -42,19 +45,58 @@ export class HomeComponent implements OnInit {
   reset() {
     this.showSteps = false;
     this.stepsMap = ""
+    this.latexCards = [];
   }
 
   mathFieldChange(event: Equation): void {
-    this.reset()
-    const text = event.value
-    const template = this.pyodideService.createTemplate(text)
-    const output: Map<string, string> = this.pyodideService.runPython(template)
+    this.reset();
+    const text = event.value;
+    console.log(text)
     this.mathText = text;
+    let template = createTemplate(text);
+    this.runCode(template);
+  }
+
+  onButtonClick() {
+    this.reset()
+    let template = createPythonExprTemplate(this.pythonText);
+    this.runCode(template);
+  }
+
+  runCode(template: string) {
+    const output: Map<string, string> = this.pyodideService.runPython(template);
     this.outputEType = output.get("etype") as OutputEType
     this.outputType = output.get("type") as OutputType;
     if (this.outputType == OutputType.Latex) {
-      this.outputLatex = "$" + output.get("ans") as string + "$"
+      console.log(this.latexCards)
+      this.latexCards.push({
+        name: this.outputEType,
+        latex: "$$" + output.get("ans") as string + "$$"
+      })
     }
+    // if (this.outputEType == OutputEType.Expression) {
+    //   const otherAnswersCode = createExpressionTemplate(templ)
+    //   this.runOtherAnswers(otherAnswersCode)
+    // }
+  }
+
+  runOtherAnswers(code: string) {
+    const output = this.pyodideService.runPython(code)
+    this.latexCards = [
+      ...this.latexCards,
+      {
+        name: "Derivative",
+        latex: "$$" + output.get("derivative") as string + "$$"
+      },
+      {
+        name: "Integral",
+        latex: "$$" + output.get("integral") as string + "$$"
+      },
+      {
+        name: "Series Expansion",
+        latex: "$$" + output.get("series") as string + "$$"
+      }
+    ]
   }
 
   get showStepsButton(): boolean {

@@ -9,6 +9,7 @@ export enum OutputEType {
   Integral = "integral",
   Expression = "expression",
   Equation = "equation",
+  DifferentialEquation = "differential_equation",
   None = "none"
 }
 
@@ -25,6 +26,11 @@ export interface EquationX { // Contains Additional Options
 }
 
 export const fnTypes: string[] = [
-  'linear', 'parametric',
+  'linear',
   'implicit', 'polar'
 ]
+
+export interface LatexCard {
+  name: string
+  latex: string
+}

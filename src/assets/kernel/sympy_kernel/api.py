@@ -1,8 +1,11 @@
 from sympy import *
 import enum
+
+from .series import series_expansion
 from .latex import eval_latex_input, parse_expression, toLatex
 from .calculus import *
 from .gamma import integral, derivative
+# from .ode import ode_solve
 
 # creating enumerations using class
 
@@ -60,9 +63,11 @@ def getMultipleExpr(latex):
     expr = parse_expression(parsed)
     derivative = getDerivative(expr)
     integral = getIntegral(expr)
+    series_exp = series_expansion(expr)
     return {
         "derivative": toLatex(derivative),
-        "integral": toLatex(integral)
+        "integral": toLatex(integral),
+        "series": toLatex(series_exp)
     }
 
 

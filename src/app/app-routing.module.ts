@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { GrapherComponent } from './grapher/grapher.component';
 import { HomeComponent } from './home/home.component';
+import { OdePageComponent } from './ode-page/ode-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'about', component: AboutPageComponent },
+  { path: 'ode-solver', component: OdePageComponent },
   { 
     path: 'graph',  
     loadChildren: () => import('./grapher/grapher.module').then(m => m.GrapherModule)

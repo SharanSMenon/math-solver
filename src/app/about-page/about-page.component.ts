@@ -22,7 +22,7 @@ const data = [
   },
   {
     "title": "Trigonometry",
-    "description": `math`
+    "description": `It can simplify trig expression, take trig derivatives, plot trig functions. It will also show the series expansion if you enter a trigonometric expression.`
   },
   {
     "title": "Calculus",

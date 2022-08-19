@@ -45,24 +45,6 @@ export class PyodideService {
     }
   }
 
-  createTemplate(latex: string): string {
-    const expressionCode = `
-    import sympy_kernel
-    rst = R"${latex}"
-    out = sympy_kernel.solveLatexExprSimple(rst)
-    `
-    return expressionCode
-  }
-
-  createExpressionTemplate(latex: string): string {
-    const expressionCode = `
-    import sympy_kernel
-    rst = R"${latex}"
-    out = sympy_kernel.getMultipleExpr(rst)
-    `
-    return expressionCode
-  }
-
   createIntegralStepsTemplate(latex: string): string {
     const expressionCode = `
     from sympy_kernel import integral_steps

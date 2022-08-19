@@ -1,0 +1,17 @@
+<div [ngSwitch]="isLoading" class="body-div">
+    <div *ngSwitchCase="false">
+        <math-editor (onValueChange)="mathFieldChange($event)" uuid="1" id="editor">
+        </math-editor>
+        <br />
+        <div>
+            <div *ngFor="let card of latexCards">
+                <app-latex-card [name]="card.name" [latex]="card.latex" [showActions]="false"></app-latex-card>
+                <br>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div *ngSwitchCase="true" class="spinner-container">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

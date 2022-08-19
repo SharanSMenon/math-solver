@@ -1,10 +1,28 @@
 <div [ngSwitch]="isLoading" class="body-div">
     <div *ngSwitchCase="false">
-        <math-editor (onValueChange)="mathFieldChange($event)" uuid="1" id="editor"></math-editor>
+        <mat-button-toggle-group [(ngModel)]="inputType">
+            <mat-button-toggle value="latex">Math Input</mat-button-toggle>
+            <mat-button-toggle value="python">Python</mat-button-toggle>
+        </mat-button-toggle-group>
+        <br /><br />
+        <math-editor *ngIf="inputType == 'latex'" (onValueChange)="mathFieldChange($event)" uuid="1" id="editor">
+        </math-editor>
+        <div *ngIf="inputType == 'python'" class="python-container">
+            <mat-form-field class="python-input" appearance="fill">
+                <mat-label>Enter SymPy Expression</mat-label>
+                <input matInput type="text" [(ngModel)]="pythonText"/>
+                <button matSuffix mat-icon-button (click)="onButtonClick()">
+                    <mat-icon>play_circle_outline</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
         <br>
         <div *ngIf="outputType == OutputEnum.Latex">
-            <app-latex-card [name]="this.outputEType" [latex]="outputLatex" [showActions]="this.showStepsButton"
+            <div *ngFor="let card of latexCards">
+                <app-latex-card [name]="card.name" [latex]="card.latex" [showActions]="this.showStepsButton"
                 (onClick)="getSteps()"></app-latex-card>
+                <br>
+            </div>
             <br />
             <app-step-card [steps]="this.stepsMap" *ngIf="this.showSteps"></app-step-card>
         </div>

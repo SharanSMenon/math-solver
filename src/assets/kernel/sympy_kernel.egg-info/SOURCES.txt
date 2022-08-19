@@ -3,6 +3,8 @@ sympy_kernel/__init__.py
 sympy_kernel/api.py
 sympy_kernel/calculus.py
 sympy_kernel/latex.py
+sympy_kernel/ode.py
+sympy_kernel/series.py
 sympy_kernel.egg-info/PKG-INFO
 sympy_kernel.egg-info/SOURCES.txt
 sympy_kernel.egg-info/dependency_links.txt
