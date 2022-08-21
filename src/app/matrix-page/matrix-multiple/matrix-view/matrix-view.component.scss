@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}
+input {
+    margin-bottom: 5px;
+    width:50px;
+    color:white;
+    border-radius: 3px;
+    padding:2px;
+    border:1px solid lightgray;
+    font-family: monospace;
+    background-color: transparent;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}

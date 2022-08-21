@@ -19,6 +19,11 @@ import { GrapherComponent } from './grapher/grapher.component';
 import { LatexCardComponent } from './cards/latex-card/latex-card.component';
 import { GrapherDialogComponent } from './grapher/grapher-dialog/grapher-dialog.component';
 import { OdePageComponent } from './ode-page/ode-page.component';
+import { MatrixPageComponent } from './matrix-page/matrix-page.component';
+import { SystemEquationComponent } from './matrix-page/system-equation/system-equation.component';
+import { SingleMatrixComponent } from './matrix-page/single-matrix/single-matrix.component';
+import { MatrixMultipleComponent } from './matrix-page/matrix-multiple/matrix-multiple.component';
+import { MatrixViewComponent } from './matrix-page/matrix-multiple/matrix-view/matrix-view.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { OdePageComponent } from './ode-page/ode-page.component';
     LatexCardComponent,
     GrapherDialogComponent,
     OdePageComponent,
+    MatrixPageComponent,
+    SystemEquationComponent,
+    SingleMatrixComponent,
+    MatrixMultipleComponent,
+    MatrixViewComponent,
   ],
   imports: [
     CommonModule,

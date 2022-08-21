@@ -16,7 +16,6 @@ export class GrapherDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<GrapherDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: EquationX,
   ) { 
-    console.log(data)
   }
 
   onNoClick(): void {

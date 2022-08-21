@@ -1,0 +1,13 @@
+<div class="toolbar">
+    <button mat-flat-button (click)="updateSize(1)">+</button>
+    <button mat-flat-button (click)="updateSize(-1)">-</button>
+</div>
+<div *ngFor="let x of this.array(matrixSize); index as i" class="col">
+    <div class="row">
+        <div *ngFor="let y of this.array(matrixSize); index as j" class="combine">
+            <div>
+                <input type="number" *ngIf="j < matrixSize" [value]="0" (change)="assign(i, j, $event)">
+            </div>
+        </div>
+    </div>
+</div>

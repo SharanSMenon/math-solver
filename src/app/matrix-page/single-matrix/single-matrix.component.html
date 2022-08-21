@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="toolbar">
+        <button mat-flat-button (click)="updateSize(1)">+</button>
+        <button mat-flat-button (click)="updateSize(-1)">-</button>
+    </div>
+    <div *ngFor="let x of this.array(matrixSize); index as i" class="col">
+        <div class="row">
+            <div *ngFor="let y of this.array(matrixSize); index as j" class="combine">
+                <div>
+                    <input type="number" *ngIf="j < matrixSize" [value]="0" (change)="assign(i, j, $event)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="toolbar">
+        <button mat-flat-button (click)="runDeterminant()">Determinant</button>
+        <button mat-flat-button (click)="runInverse()">Inverse</button>
+        <button mat-flat-button (click)="runTranspose()">Transpose</button>
+        <button mat-flat-button (click)="runRank()">Rank</button>
+        <button mat-flat-button (click)="runLUDecomp()">LU Decomposition</button>
+        <button mat-flat-button (click)="runEigenvalues()">Find Eigenvalues</button>
+    </div>
+    <app-latex-card *ngIf="this.showOut" [latex]="outLatex" [name]="name"></app-latex-card>
+</div>

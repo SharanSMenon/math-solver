@@ -13,6 +13,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -31,8 +33,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatTabsModule,
     MatDialogModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

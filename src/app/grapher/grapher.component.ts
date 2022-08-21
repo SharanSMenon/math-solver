@@ -31,6 +31,7 @@ export class GrapherComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pyodideService.loadPyo()
     this.snackbarService.loading()
   }
 
@@ -53,8 +54,6 @@ export class GrapherComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
     });
   }
 

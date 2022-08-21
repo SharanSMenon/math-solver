@@ -28,6 +28,14 @@ const data = [
     "title": "Calculus",
     "description": `It will solve Limits, Derivatives, and Integrals. The calculator is able to give steps for derivatives and integrals.
     Definite, Improper, and Indefinite integrals are supported. Double and Triple integrals are also supported.`
+  },
+  {
+    "title": "Differential Equations",
+    "description": `It can solve many first and second order differential equations, where y is the function and x is a variable. Derivatives of y(x) are marked as y' or y''`
+  },
+  {
+    "title": "Linear Algebra",
+    "description": `The solver includes a matrix calculator that can perform many common linear algebra operations. It is capable of finding the inverse, solving linear systems, finding eigenvectors, and more.`
   }
 ]
 

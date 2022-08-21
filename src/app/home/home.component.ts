@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pyodideService.loadPyo();
     this.snackbarService.loading();
     this.pyodideService.isLoadingObs.subscribe(value => {
       if (!value) {
@@ -51,7 +52,6 @@ export class HomeComponent implements OnInit {
   mathFieldChange(event: Equation): void {
     this.reset();
     const text = event.value;
-    console.log(text)
     this.mathText = text;
     let template = createTemplate(text);
     this.runCode(template);
@@ -68,16 +68,15 @@ export class HomeComponent implements OnInit {
     this.outputEType = output.get("etype") as OutputEType
     this.outputType = output.get("type") as OutputType;
     if (this.outputType == OutputType.Latex) {
-      console.log(this.latexCards)
       this.latexCards.push({
         name: this.outputEType,
         latex: "$$" + output.get("ans") as string + "$$"
       })
     }
-    // if (this.outputEType == OutputEType.Expression) {
-    //   const otherAnswersCode = createExpressionTemplate(templ)
-    //   this.runOtherAnswers(otherAnswersCode)
-    // }
+    if (this.outputEType == OutputEType.Expression && this.inputType == "latex") {
+      const otherAnswersCode = createExpressionTemplate(this.mathText)
+      this.runOtherAnswers(otherAnswersCode)
+    }
   }
 
   runOtherAnswers(code: string) {

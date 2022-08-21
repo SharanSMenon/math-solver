@@ -1,0 +1,11 @@
+.container {
+    padding:10px;
+    display: grid;
+    gap:15px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.actions-card {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

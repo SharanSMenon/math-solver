@@ -18,6 +18,12 @@ export interface Equation {
   value: string
 }
 
+export interface MatrixUpdate {
+  matrix: number[][]
+  size: number
+  name: string
+}
+
 export interface EquationX { // Contains Additional Options
   id: string
   value: string

@@ -22,6 +22,7 @@ export class OdePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pyodideService.loadPyo()
     this.snackbarService.loading();
     this.pyodideService.isLoadingObs.subscribe(value => {
       if (!value) {
@@ -38,7 +39,6 @@ export class OdePageComponent implements OnInit {
   mathFieldChange(event: Equation): void {
     this.reset();
     const text = event.value;
-    console.log(text)
     this.mathText = text;
     const template = createODETemplate(text);
     const output = this.pyodideService.runPython(template)

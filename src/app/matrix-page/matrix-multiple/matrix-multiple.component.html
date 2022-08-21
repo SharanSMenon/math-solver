@@ -1,0 +1,16 @@
+<div class="container">
+    <app-matrix-view [matrix]="matrixA" [matrixSize]="matrixSizeA" matrixName="A"
+        (onMatUpdate)="onMatrixChange($event)"></app-matrix-view>
+    <app-matrix-view [matrix]="matrixB" [matrixSize]="matrixSizeB" matrixName="B"
+        (onMatUpdate)="onMatrixChange($event)"></app-matrix-view>
+    <mat-card class="actions-card">
+        <mat-card-title>Actions</mat-card-title>
+        <mat-card-actions>
+            <button mat-stroked-button (click)="runMatrixMultiply()">A &times; B</button>
+            <button mat-stroked-button (click)="runMatrixAdd()">A + B</button>
+            <button mat-stroked-button (click)="runMatrixSub()">A - B</button>
+        </mat-card-actions>
+    </mat-card>
+    <app-latex-card class="actions-card" *ngIf="this.showOut" [latex]="outLatex" name="Solution">
+    </app-latex-card>
+</div>

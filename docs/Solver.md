@@ -37,8 +37,25 @@ Right now, the calculator can solve many first and second order differential equ
 Enter your equation with where $y$ is the function to find and $x$ is your variable. The calculator returns the answer as a function $f(x)$.
 
 **Examples**:
-- $y^{\doubleprime} - 5y^{\prime} + 6y=0$
+- $y'' - 5y^{\prime} + 6y=0$
 - $y^{\prime} = 2x$
+
+## Linear Algebra
+
+The solver has support for many linear algebra operations.
+
+- Solves systems of linear equations with matrix methods
+    - Gauss Jordan - The most reliable method
+    - LU Decomposition - Another method for solving equation
+- Multiply, Add, or Subtract 2 matrices
+- Run different opreations on a single matrix
+    - Inverse
+    - Determinant
+    - LU Decomposition
+    - Transpose
+    - Eigenvectors
+    - Eigenvalues
+    - Rank
 
 ## Sympy input
 
@@ -48,9 +65,5 @@ One can also enter SymPy input, if they have problems that are hard to translate
 
 The following sections detail future features of the solver. The features below have not been implemented yet.
 
-### Linear Algebra
-
-The calculator will accept matrices as input. It should be able to find the determinant, solve systems of equations using matrices, find the inverse, perform elementary matrix operations, etc. Either NumPy or SymPy could be used for this.
-
-Symbolic matrices can be supported by SymPy.
+**No future plans currently**
 
